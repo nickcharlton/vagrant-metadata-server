@@ -4,6 +4,7 @@ GEM
     base64 (0.3.0)
     bigdecimal (4.1.0)
     diff-lcs (1.6.2)
+    jet_black (0.7.1)
     logger (1.7.0)
     multi_json (1.19.1)
     mustermann (3.0.4)
@@ -59,6 +60,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  jet_black
   puma
   rack-test
   rackup
@@ -72,6 +74,7 @@ CHECKSUMS
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bigdecimal (4.1.0) sha256=6dc07767aa3dc456ccd48e7ae70a07b474e9afd7c5bc576f80bd6da5c8dd6cae
   diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
+  jet_black (0.7.1) sha256=9808c54a869981f1b0cfadbacd6b101e27a3a67fca082173d78fe5507a0554dd
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   multi_json (1.19.1) sha256=7aefeff8f2c854bf739931a238e4aea64592845e0c0395c8a7d2eea7fdd631b7
   mustermann (3.0.4) sha256=85fadcb6b3c6493a8b511b42426f904b7f27b282835502233dd154daab13aa22

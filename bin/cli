@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+
+require_relative "../database"
+require_relative "../lib/cli"
+
+global_parser = OptionParser.new do |opts|
+  opts.banner = "bin/cli [global options] command [command options] [command args...]"
+end
+
+commands = {}
+commands["add-box"] = AddBoxCommand
+
+global_options  = {}
+command_options = {}
+
+global_parser.order!(into: global_options)
+command = ARGV[0]
+
+if command == nil
+  puts global_parser
+
+  puts
+  commands.each do |k, v|
+    op = v.option_parser
+    puts op.summarize(
+      "\t#{op.banner}".sub(/\n?\z/, "\n"),
+      op.summary_width,
+      op.summary_width - 1,
+      "\t")
+    puts
+  end
+
+  exit 1
+end
+
+command_klass = commands[command]
+command_parser = command_klass.option_parser
+command_parser.parse!(into: command_options)
+command_klass.new(command_options:, args: ARGV).execute
