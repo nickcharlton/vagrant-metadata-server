@@ -20,3 +20,9 @@ RSpec.configure { |c| c.include RSpecMixin }
 JetBlack.configure do |config|
   config.path_prefix = File.expand_path("../bin", __dir__)
 end
+
+RSpec.configure do |config|
+  config.after(:each) do
+    DB.tables.reverse_each { |table_name| DB.from(table_name).delete }
+  end
+end

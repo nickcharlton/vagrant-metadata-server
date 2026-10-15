@@ -26,6 +26,12 @@ bin/cli [global options] command [command options] [command args...]
 
         add-box [command options] [command args...]
             --name NAME                  Name of the box including user
+
+        add-version [command options] [command args...]
+            --box BOX_NAME               Name of the box including user
+            --version VERSION            Value for the version
+            --status [STATUS]            Status of the box, defaults to active
+            --description [DESCRIPTION]  Box description. Supports Markdown. Defaults to blank
 ```
 
 [Vagrant Cloud]: https://developer.hashicorp.com/vagrant/vagrant-cloud

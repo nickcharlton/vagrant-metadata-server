@@ -1,10 +1,10 @@
 require "sequel"
 
 DB = if ENV["APP_ENV"] == "test"
-       Sequel.sqlite
-     else
-       Sequel.connect("sqlite://metadata.db")
-     end
+  Sequel.connect("sqlite://test.db")
+else
+  Sequel.connect("sqlite://metadata.db")
+end
 
 DB.create_table? :boxes do
   primary_key :id

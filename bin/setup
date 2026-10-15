@@ -2,5 +2,9 @@
 
 set -e
 
+if ! command -v sqlite3 > /dev/null; then
+	echo "sqlite3 command is recommended."
+fi
+
 gem install bundler --conservative
 bundle check || bundle install

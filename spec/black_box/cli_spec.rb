@@ -24,7 +24,22 @@ RSpec.describe "CLI" do
     end
   end
 
+  describe "add-version" do
+    it "adds a version to a box" do
+      session.run("cli add-box --name ubuntu/noble")
+      result = session.run("cli add-version --box ubuntu/noble --version 20260415.0.0")
+
+      expect(result).to be_a_success.and have_stdout(/Version added/)
+    end
+
+    it "has help text" do
+      result = session.run("cli add-version --help")
+
+      expect(result).to have_stdout(/add-version \[command options\] \[command args...\]/)
+    end
+  end
+
   def session
-    JetBlack::Session.new
+    @session ||= JetBlack::Session.new
   end
 end
