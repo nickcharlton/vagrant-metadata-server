@@ -39,6 +39,26 @@ RSpec.describe "CLI" do
     end
   end
 
+  describe "add-provider" do
+    it "adds a provider to a version on a box" do
+      session.run("cli add-box --name ubuntu/noble")
+      session.run("cli add-version --box ubuntu/noble --version 20260415.0.0")
+      result = session.run("cli add-provider --box ubuntu/noble " \
+        "--version 20260415.0.0 --name libvirt --architecture amd64 " \
+        "--default-architecture --checksum abc123 " \
+        "--checksum-type not_a_checksum " \
+        "--url https://example.com/vms-example-box/vagrant.box")
+
+      expect(result).to be_a_success.and have_stdout(/Provider added/)
+    end
+
+    it "has help text" do
+      result = session.run("cli add-provider --help")
+
+      expect(result).to have_stdout(/add-provider \[command options\] \[command args...\]/)
+    end
+  end
+
   def session
     @session ||= JetBlack::Session.new
   end

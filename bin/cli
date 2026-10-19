@@ -12,6 +12,7 @@ end
 commands = {}
 commands["add-box"] = AddBoxCommand
 commands["add-version"] = AddVersionCommand
+commands["add-provider"] = AddProviderCommand
 
 global_options  = {}
 command_options = {}
