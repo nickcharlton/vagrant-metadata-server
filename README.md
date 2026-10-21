@@ -1,6 +1,7 @@
 # vagrant-metadata-server
 
-A reference [Vagrant Cloud][] implementation to build a custom server.
+A reference [Vagrant Cloud][] implementation to build a custom server. [The
+background is documented in this blog post][blog-post].
 
 ## Usage
 
@@ -48,3 +49,4 @@ bin/cli [global options] command [command options] [command args...]
 
 [Vagrant Cloud]: https://developer.hashicorp.com/vagrant/vagrant-cloud
 [Sinatra]: https://sinatrarb.com/
+[blog-post]: https://nickcharlton.net/posts/building-a-custom-vagrant-metadata-server
