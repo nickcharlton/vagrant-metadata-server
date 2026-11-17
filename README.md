@@ -47,6 +47,21 @@ bin/cli [global options] command [command options] [command args...]
             --url [URL]                  URL of where to find the box file
 ```
 
+### Docker
+
+There's a `Dockerfile`, which [is pushed as a GitHub Package][gh-package].
+
+```sh
+$ docker run -p 9292:9292 ghcr.io/nickcharlton/vagrant-metadata-server
+```
+
+```sh
+$ docker build . -t ghcr.io/nickcharlton/vagrant-metadata-server:latest \
+  -t ghcr.io/nickcharlton/vagrant-metadata-server:$(git rev-parse --short HEAD)
+$ docker push ghcr.io/nickcharlton/vagrant-metadata-server:latest
+```
+
 [Vagrant Cloud]: https://developer.hashicorp.com/vagrant/vagrant-cloud
 [Sinatra]: https://sinatrarb.com/
 [blog-post]: https://nickcharlton.net/posts/building-a-custom-vagrant-metadata-server
+[gh-package]: https://github.com/nickcharlton/vagrant-metadata-server/pkgs/container/vagrant-metadata-server
